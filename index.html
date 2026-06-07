@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Tools | Home</title>
+  <meta name="description" content="A simple homepage for your GitHub Pages site linking to school online tools." />
+  <style>
+    :root {
+      --maroon: #7a1f2b;
+      --gold: #d4af37;
+      --ink: #1f2937;
+      --muted: #6b7280;
+      --bg: #f7f7f8;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #faf7f8 0%, var(--bg) 30%, #ffffff 100%);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    header {
+      background: linear-gradient(135deg, var(--maroon) 0%, #4d1019 100%);
+      color: #fff;
+      padding: 28px 0 72px;
+      border-bottom: 4px solid var(--gold);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      letter-spacing: .08em;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: rgba(255,255,255,0.82);
+      font-size: .95rem;
+    }
+
+    .hero {
+      padding-top: 42px;
+      display: grid;
+      grid-template-columns: 1.35fr .9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.08;
+      margin: 0 0 14px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.9);
+      margin: 0 0 24px;
+      max-width: 58ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: #fff;
+      color: var(--maroon);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.24);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 22px;
+      padding: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.06rem;
+    }
+
+    .hero-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    main {
+      margin-top: -38px;
+      padding-bottom: 46px;
+    }
+
+    .section-title {
+      margin: 24px 0 14px;
+      font-size: 1.4rem;
+    }
+
+    .section-subtitle {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--maroon);
+      font-weight: 700;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+
+    .card a.tool-link {
+      color: var(--maroon);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .small-note {
+      margin-top: 24px;
+      padding: 16px 18px;
+      color: var(--muted);
+      background: #fff;
+      border: 1px dashed #d1d5db;
+      border-radius: 14px;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding: 24px 0 10px;
+      color: var(--muted);
+      font-size: .94rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      header { padding-bottom: 56px; }
+      .grid { grid-template-columns: 1fr; }
+      .brand h1 { font-size: 1.2rem; }
+      .hero p { font-size: 1rem; }
+      .btn { width: 100%; }
+      .hero-actions { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">SA</div>
+          <div>
+            <h1>Online Tools</h1>
+            <p>Simple web tools published with GitHub Pages</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div>
+          <h2>Welcome to your GitHub homepage</h2>
+          <p>
+            This page can act as the front door to your online calculators, forms, and school operations tools.
+            Add, remove, or rename any of the links below as your toolset grows.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="payment_plan_calculator.html">Open Fee Payment Calculator</a>
+            <a class="btn btn-secondary" href="https://github.com/smpandrews-sac/Online-Tools" target="_blank" rel="noopener">View Repository</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <h3>Quick setup notes</h3>
+          <ul>
+            <li>This file must be named <strong>index.html</strong>.</li>
+            <li>Place it in the <strong>root</strong> of your repository.</li>
+            <li>Rename your calculator file to something simple, such as <strong>payment_plan_calculator.html</strong>.</li>
+            <li>GitHub Pages will then load this page automatically.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h2 class="section-title">Available tools</h2>
+      <p class="section-subtitle">Start with one tool now and add more over time.</p>
+
+      <div class="grid">
+        <section class="card">
+          <span class="eyebrow">Featured</span>
+          <h3>Fee Payment Plan Calculator</h3>
+          <p>Help families estimate weekly, fortnightly, or monthly fee payment options.</p>
+          <a class="tool-link" href="payment_plan_calculator.html">Launch calculator →</a>
+        </section>
+
+        <section class="card">
+          <span class="eyebrow">Coming soon</span>
+          <h3>WHS / Risk Tool</h3>
+          <p>Add a future link here for incident reporting, risk assessments, or maintenance forms.</p>
+          <a class="tool-link" href="#">Add link later →</a>
+        </section>
+
+        <section class="card">
+          <span class="eyebrow">Coming soon</span>
+          <h3>Parent Information Tools</h3>
+          <p>Use this card for fee information, enrolment forms, policy links, or other calculators.</p>
+          <a class="tool-link" href="#">Add link later →</a>
+        </section>
+      </div>
+
+      <div class="small-note">
+        <strong>Edit these links:</strong> if your calculator file has a different filename, update the link in this page.
+        For best results, avoid spaces and brackets in file names.
+      </div>
+
+      <footer>
+        Built for GitHub Pages • Update this page anytime by editing <strong>index.html</strong>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
